@@ -16,6 +16,11 @@ public class YAML<T> extends ExtendedDevKtLanguage<T> {
 		super(YAMLLanguage.INSTANCE, new YAMLParserDefinition());
 	}
 
+	@Override
+	public boolean satisfies(@NotNull String fileName) {
+		return fileName.endsWith(".yml") || fileName.endsWith(".yaml");
+	}
+
 	@Nullable
 	@Override
 	public T attributesOf(@NotNull IElementType type, @NotNull ColorScheme<? extends T> colorScheme) {

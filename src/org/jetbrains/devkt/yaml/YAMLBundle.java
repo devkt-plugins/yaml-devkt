@@ -25,11 +25,11 @@ public class YAMLBundle {
 	/*
 	 * This method added for jruby access
 	 */
-	public static String message(@PropertyKey(resourceBundle = BUNDLE) String key) {
+	public static @NotNull String message(@PropertyKey(resourceBundle = BUNDLE) String key) {
 		return CommonBundle.message(getBundle(), key);
 	}
 
-	private static ResourceBundle getBundle() {
+	private static @NotNull ResourceBundle getBundle() {
 		return bundle == null ? (bundle = ResourceBundle.getBundle(BUNDLE)) : bundle;
 	}
 }
