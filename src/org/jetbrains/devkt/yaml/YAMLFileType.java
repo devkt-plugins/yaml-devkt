@@ -36,10 +36,8 @@ public class YAMLFileType extends LanguageFileType {
 		return DEFAULT_EXTENSION;
 	}
 
-	// FIXME
-	@Nullable
-	public Icon getIcon() {
-		return null;
+	public @NotNull Icon getIcon() {
+		return YAMLIcons.FILE;
 	}
 }
 
