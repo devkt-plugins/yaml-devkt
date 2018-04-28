@@ -42,6 +42,9 @@ public class YAML<T> extends ExtendedDevKtLanguage<T> {
 		else if (type == YAMLTokenTypes.SCALAR_KEY) return colorScheme.getKeywords();
 		else if (type == YAMLTokenTypes.SCALAR_STRING) return colorScheme.getString();
 		else if (type == YAMLTokenTypes.SCALAR_DSTRING) return colorScheme.getString();
+		else if (type == YAMLTokenTypes.SCALAR_TEXT) return colorScheme.getString();
+		else if (type == YAMLTokenTypes.LBRACE || type == YAMLTokenTypes.RBRACE) return colorScheme.getBraces();
+		else if (type == YAMLTokenTypes.LBRACKET || type == YAMLTokenTypes.RBRACKET) return colorScheme.getBrackets();
 		else return super.attributesOf(type, colorScheme);
 	}
 
