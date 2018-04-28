@@ -1,9 +1,8 @@
-# plugin-template
+# YAML for DevKt
 
-This is the template of the plugin project.
+[![Build Status](https://travis-ci.org/devkt-plugins/yaml-devkt.svg?branch=master)](https://travis-ci.org/devkt-plugins/yaml-devkt)
 
-Things to change before coding:
+YAML support for devkt, based on the yaml plugin of [intellij-community][0].
 
-+ `your-language-devkt` in [settings.gradle.kts](settings.gradle.kts)
-+ `your.package.name` in [build.gradle.kts](build.gradle.kts)
+  [0]: https://github.com/JetBrains/intellij-community
 

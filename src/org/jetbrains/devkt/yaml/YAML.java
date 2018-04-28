@@ -4,6 +4,8 @@ import org.ice1000.devkt.openapi.ColorScheme;
 import org.ice1000.devkt.openapi.ExtendedDevKtLanguage;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.jetbrains.devkt.yaml.psi.YAMLKeyValue;
+import org.jetbrains.kotlin.com.intellij.psi.PsiElement;
 import org.jetbrains.kotlin.com.intellij.psi.tree.IElementType;
 
 import javax.swing.*;
@@ -14,6 +16,16 @@ import javax.swing.*;
 public class YAML<T> extends ExtendedDevKtLanguage<T> {
 	public YAML() {
 		super(YAMLLanguage.INSTANCE, new YAMLParserDefinition());
+	}
+
+	@Override
+	public boolean shouldAddAsCompletion(@NotNull PsiElement element) {
+		return element instanceof YAMLKeyValue;
+	}
+
+	@Override
+	public final @NotNull String getLineCommentStart() {
+		return "#";
 	}
 
 	@Override
@@ -28,6 +40,8 @@ public class YAML<T> extends ExtendedDevKtLanguage<T> {
 		else if (type == YAMLTokenTypes.COLON) return colorScheme.getColon();
 		else if (type == YAMLTokenTypes.COMMENT) return colorScheme.getLineComments();
 		else if (type == YAMLTokenTypes.SCALAR_KEY) return colorScheme.getKeywords();
+		else if (type == YAMLTokenTypes.SCALAR_STRING) return colorScheme.getString();
+		else if (type == YAMLTokenTypes.SCALAR_DSTRING) return colorScheme.getString();
 		else return super.attributesOf(type, colorScheme);
 	}
 

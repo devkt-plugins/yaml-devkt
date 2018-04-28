@@ -1,15 +1,13 @@
-import org.jetbrains.kotlin.gradle.plugin.KotlinSourceSet
 import java.io.*
 
 val kotlinVersion = "1.2.40"
 
 group = "org.jetbrains.devkt.yaml"
-version = "v1.0-SNAPSHOT"
+version = "v1.0"
 
 plugins {
 	java
 	application
-	kotlin("jvm") version "1.2.40"
 }
 
 java {
@@ -20,17 +18,11 @@ java {
 java.sourceSets {
 	"main" {
 		java.setSrcDirs(listOf("src", "gen"))
-		withConvention(KotlinSourceSet::class) {
-			kotlin.setSrcDirs(listOf("src"))
-		}
 		resources.setSrcDirs(listOf("res"))
 	}
 
 	"test" {
 		java.setSrcDirs(emptyList<Any>())
-		withConvention(KotlinSourceSet::class) {
-			kotlin.setSrcDirs(emptyList<Any>())
-		}
 		resources.setSrcDirs(emptyList<Any>())
 	}
 }
